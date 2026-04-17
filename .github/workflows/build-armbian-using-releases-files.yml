@@ -182,6 +182,7 @@ on:
           - s905x3-x96air-gb
           - s905x3-x96max
           - s912
+          - s912-b1s
           - s912-h96pro-plus
           - s912-m8s-pro
           - s912-nexbox-a1
@@ -400,7 +401,7 @@ jobs:
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Rebuild Armbian [ ${{ inputs.set_release }} ]
-        uses: ophub/amlogic-s9xxx-armbian@main
+        uses: ./
         if: ${{ steps.down.outputs.status == 'success' && !cancelled() }}
         with:
           build_target: armbian
